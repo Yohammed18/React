@@ -5,6 +5,9 @@ function HookPage() {
 
     const [name, setName] = useState("")
     const [isTrue, setIsTrue] = useState(false)
+    const [count, setCount] = useState(0)
+
+
     const handleInputChange = (e) =>{
         setName(e.target.value)
     }
@@ -18,13 +21,22 @@ function HookPage() {
         }
         
     }
-
-    const handleCancel = () =>{
+    const handleCancel = () => {
         setName("")
         setIsTrue(false)
     }
+
+    const incremenet = () => {
+        setCount(count+1)
+    }
+
+    const decremenet = () => {
+        setCount(count-1)
+    }
+
   return (
     <Container>
+        <div style={{textAlign: 'center'}}>
         <label htmlFor="">Enter Name: </label>
         <br />
         <input type="text" value={name} onChange={handleInputChange}/>
@@ -32,9 +44,13 @@ function HookPage() {
             className='btn btn-success' onClick={handleSubmit}>Submit</button>
         <button type="submit" 
             className='btn btn-danger' 
-            onClick={handleCancel}>Cancel</button>
+            onClick={handleCancel}>Clear</button>
         {isTrue && <p>Your name is {name}</p>}
         
+            <h1>{count}</h1>
+            <button type="button" onClick={incremenet}>+</button>
+            <button type="button" onClick={decremenet}>-</button>
+        </div>
     </Container>
   )
 }
