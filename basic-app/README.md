@@ -22,3 +22,16 @@ React offers two main types of components: class components and functional compo
 
 JSX (JavaScript XML) is a syntax extension for JavaScript that is commonly used in React. It allows you to write HTML-like code within JavaScript, making it easier to visualize the UI structure of your components. JSX is fundamental to writing React applications.
 
+
+## React Hooks
+React Hooks are functions that let you "hook into" React state and lifecycle features in functional components. Introduced in React 16.8, Hooks allow you to use state, context, and other React features without writing a class component
+
+***useState:*** - Manages state in functional components.
+
+***useEffect:*** - Handles side effects like fetching data, subscriptions, and manually changing the DOM.
+
+***useContext:*** - Simplifies accessing context values without needing Context.Consumer or passing props down multiple levels.
+
+***useRef:*** - Accesses DOM elements or stores mutable values that persist across renders without triggering re-renders.
+
+***useCallback:*** - Memoizes callback functions to avoid unnecessary re-creations, useful in optimizing performance.
