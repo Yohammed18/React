@@ -1,6 +1,7 @@
 import { Fragment } from "react"
-import Forms from "./components/Forms/Forms"
-import EffectComponent from "./components/EffectComponent/EffectComponent"
+// import Forms from "./components/Forms/Forms"
+// import EffectComponent from "./components/EffectComponent/EffectComponent"
+import ContextComponent from "./components/ContextComponent/ContextComponent"
 // import Add from "./components/Add/Add"
 // import Greetings from "./components/Greetings/Greetings"
 // import userInfo from './userInfo.json'
@@ -13,9 +14,10 @@ import EffectComponent from "./components/EffectComponent/EffectComponent"
 function App() {
   return (
     <Fragment>
-      <Forms/>
+      <ContextComponent />
+      {/* <Forms/>
       <hr />
-      <EffectComponent title='Welcome to useEffect'/>
+      <EffectComponent title='Welcome to useEffect'/> */}
       {/* <Add />
       <Greetings />
       <User info={userInfo}/> */}
