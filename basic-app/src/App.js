@@ -1,5 +1,6 @@
 import { Fragment } from "react"
 import Forms from "./components/Forms/Forms"
+import EffectComponent from "./components/EffectComponent/EffectComponent"
 // import Add from "./components/Add/Add"
 // import Greetings from "./components/Greetings/Greetings"
 // import userInfo from './userInfo.json'
@@ -13,6 +14,8 @@ function App() {
   return (
     <Fragment>
       <Forms/>
+      <hr />
+      <EffectComponent title='Welcome to useEffect'/>
       {/* <Add />
       <Greetings />
       <User info={userInfo}/> */}
