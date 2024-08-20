@@ -1,0 +1,17 @@
+[
+  {
+    "username": "James",
+    "email": "james@yahoo.com",
+    "location": "NGA"
+  },
+  {
+    "username": "Smith",
+    "email": "smith@hotmail.com",
+    "location": "USA"
+  },
+  {
+    "username": "Lucas",
+    "email": "lucas@gmail.com",
+    "location": "UK"
+  }
+]
