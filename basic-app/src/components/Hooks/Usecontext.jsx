@@ -18,6 +18,7 @@ function ContextComponent() {
         </Data.Provider> 
         {/* {The Default value will be used when the component is outside of the provider} */}
         <ComponentB />
+        <hr />
     </Container>
 
   )

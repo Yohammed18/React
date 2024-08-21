@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import {Data} from './ContextComponent'
+import {Data} from './Usecontext'
 
 
 function ComponentB() {

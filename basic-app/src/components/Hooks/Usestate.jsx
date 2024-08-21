@@ -51,6 +51,7 @@ function HookPage() {
             <button type="button" onClick={incremenet}>+</button>
             <button type="button" onClick={decremenet}>-</button>
         </div>
+        <hr />
     </Container>
   )
 }

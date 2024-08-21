@@ -49,7 +49,8 @@ function EffectComponent({title}) {
                     <p>Loading...</p>
                 )}
             </div>
-        </div>        
+        </div> 
+        <hr />       
     </Container>
   )
 }

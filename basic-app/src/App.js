@@ -1,12 +1,14 @@
 import { Fragment } from "react"
+import Reducer from "./components/Hooks/Reducer"
+import RefComponent from "./components/Hooks/Useref"
+import HooksPage from "./components/Hooks/HooksPage"
 // import Forms from "./components/Forms/Forms"
 // import EffectComponent from "./components/EffectComponent/EffectComponent"
-import ContextComponent from "./components/ContextComponent/ContextComponent"
+// import ContextComponent from "./components/ContextComponent/ContextComponent"
 // import Add from "./components/Add/Add"
 // import Greetings from "./components/Greetings/Greetings"
 // import userInfo from './userInfo.json'
 // import User from "./components/User/User"
-// import Home from "./components/Home/Home"
 // import HookPage from "./components/Hooks/HookPage"
 // import Movie from "./components/Movie/Movie"
 // import Resturant from "./components/Resturant/Resturant"
@@ -14,17 +16,13 @@ import ContextComponent from "./components/ContextComponent/ContextComponent"
 function App() {
   return (
     <Fragment>
-      <ContextComponent />
+      <HooksPage />
       {/* <Forms/>
       <hr />
-      <EffectComponent title='Welcome to useEffect'/> */}
       {/* <Add />
       <Greetings />
-      <User info={userInfo}/> */}
-      {/* <Home />
-       */}
-       {/* <HookPage />
-       <hr />
+      <User info={userInfo}/> */}      
+       {/* 
        <Movie />
        <hr />
        <Resturant /> */}
