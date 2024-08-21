@@ -30,6 +30,7 @@ function EffectComponent({title}) {
   return (
     <Container>
         <div style={{textAlign: 'center'}}>
+            <h1 className="me-3 text-center">useEffect()</h1>
             <h1>{title}</h1>
             <h2>{count}</h2>
             <button className="mt-3 me-3 btn btn-info" onClick={() => setCount(count+1)}

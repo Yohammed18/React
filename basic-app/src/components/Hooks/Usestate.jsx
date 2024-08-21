@@ -36,6 +36,7 @@ function HookPage() {
 
   return (
     <Container>
+        <h1 className="text-center">useState()</h1>
         <div style={{textAlign: 'center'}}>
         <label htmlFor="">Enter Name: </label>
         <br />
