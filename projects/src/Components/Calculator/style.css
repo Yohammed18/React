@@ -1,0 +1,14 @@
+.cal-box {
+    border: 2px solid black;
+    background: darkgrey;
+    color: white;
+    font-size: 30px;
+    width: 75px;
+    height: 50px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.cal-box:hover{
+    background-color: lightblue;
+}

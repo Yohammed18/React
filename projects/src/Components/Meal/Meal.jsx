@@ -31,8 +31,8 @@ function Meal() {
         <div className='container mb-5'>
             <h1 className="text-center">Meal App</h1>
             <div className="mb-5 mt-5 row">
-                <div className="col text-center">
-                    <div className="dropdown mt-3 text-center">
+                <div className="col ">
+                    <div className="dropdown mt-3">
                         <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                             Food Menu
                         </button>
@@ -49,7 +49,7 @@ function Meal() {
                         </ul>
                     </div>
                 </div>
-                <div className="col text-center">
+                <div className="col">
                     <div className="card" style={{ width: "18rem", border: "4px solid black" }}>
                         {select !== null && items.length > 0 ? (
                             <>
