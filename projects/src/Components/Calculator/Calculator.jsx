@@ -30,32 +30,30 @@ function Calculator() {
 
     const solution = () =>{
         
-        var result = 0 
+        var result = numbers[0]
         switch (operator) {
             case "+":
-                for(let i = 0; i < numbers.length; i++){
+                for(let i = 1; i < numbers.length; i++){
                     result+= numbers[i]
                 }
                 setInput(result)
                 setNumbers([])
                 break;
             case "-":
-                for(let i = 0; i < numbers.length; i++){
+                for(let i = 1; i < numbers.length; i++){
                     result-= numbers[i]
                 }
                 setInput(result)
                 setNumbers([])
                 break;
             case "*":
-                result = 1
-                for(let i = 0; i < numbers.length; i++){
+                for(let i = 1; i < numbers.length; i++){
                     result*= numbers[i]
                 }
                 setInput(result)
                 setNumbers([])
                 break;
             case "/":
-                result = numbers[0]
                 for(let i = 1; i < numbers.length; i++){
                     if (numbers[i] === 0) {
                         console.error('Division by zero error');
