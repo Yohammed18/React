@@ -11,7 +11,6 @@ function Todo() {
 
     useEffect(() =>{
         setTodos(data)
-
     }, [])
 
 
@@ -48,7 +47,7 @@ function Todo() {
 
   return (
     <div className='container'>
-      <h1 className="text-center">Todos</h1>
+      <h1 className="text-center">Todos App</h1>
       <div className="container text-center mt-4">
         <div className="row">
             <div className="col">

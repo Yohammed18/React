@@ -1,0 +1,73 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+function Meal() {
+    const [items, setItems] = useState([]);
+    const [itemsCount, setItemCount] = useState([]);
+    const [select, setSelect] = useState(null); // Initialize as null
+
+    useEffect(() => {
+        axios.get("https://www.themealdb.com/api/json/v1/1/categories.php")
+            .then(response => {
+                setItems(response.data.categories);
+                const newItems = response.data.categories.map((_, index) => index);
+                setItemCount(newItems);
+                if (newItems.length > 0) {
+                    setSelect(newItems[0]); // Default to first item
+                }
+            })
+            .catch(error => {
+                console.error('There was an error! ', error);
+            });
+    }, []);
+
+    const selectFood = (item) => {
+        if (item != null) {
+            setSelect(item);
+        }
+    };
+
+    return (
+        <div className='container mb-5'>
+            <h1 className="text-center">Meal App</h1>
+            <div className="mb-5 mt-5 row">
+                <div className="col text-center">
+                    <div className="dropdown mt-3 text-center">
+                        <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Food Menu
+                        </button>
+                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            {itemsCount.map((item) => (
+                                <React.Fragment key={item}>
+                                    <li className="dropdown-item" onClick={() => selectFood(item)}>
+                                        {items[item].idCategory} - {items[item].strCategory}
+                                    </li>
+                                    {/* Render divider for all items except the last one */}
+                                    {item < itemsCount.length - 1 && <li><hr className="dropdown-divider" /></li>}
+                                </React.Fragment>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+                <div className="col text-center">
+                    <div className="card" style={{ width: "18rem", border: "2px solid brown" }}>
+                        {select !== null && items.length > 0 ? (
+                            <>
+                                <img src={items[select].strCategoryThumb} alt="" className='card-img-top' />
+                                <div className="card-body">
+                                    <h5 className="card-title">{items[select].strCategory}</h5>
+                                    <p className="card-text">{items[select].strCategoryDescription}</p>
+                                </div>
+                            </>
+                        ) : (
+                            <p>Loading...</p>
+                        )}
+                    </div>
+                </div>
+            </div>
+            <hr />
+        </div>
+    );
+}
+
+export default Meal;
