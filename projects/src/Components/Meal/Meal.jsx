@@ -50,16 +50,17 @@ function Meal() {
                     </div>
                 </div>
                 <div className="col text-center">
-                    <div className="card" style={{ width: "18rem", border: "2px solid brown" }}>
+                    <div className="card" style={{ width: "18rem", border: "4px solid black" }}>
                         {select !== null && items.length > 0 ? (
                             <>
-                                <img src={items[select].strCategoryThumb} alt="" className='card-img-top' />
-                                <div className="card-body">
+                                <img src={items[select].strCategoryThumb} alt="" className='card-img-top' style={{border: "1px solid black", background: "lightgrey"}}/>
+                                <div className="card-body" style={{border: "1px solid black", background: "lightblue"}}>
                                     <h5 className="card-title">{items[select].strCategory}</h5>
                                     <p className="card-text">{items[select].strCategoryDescription}</p>
                                 </div>
                             </>
                         ) : (
+                            
                             <p>Loading...</p>
                         )}
                     </div>
