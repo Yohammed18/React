@@ -32,6 +32,7 @@ A component that changes the background color of the page or a specific element 
 A form component that validates inputs like email, password, etc., and provides feedback when inputs are invalid.
 - **Features:** Real-time validation and error messages.
 - **Use Case:** Handling form input, validation logic, and feedback states.
+In addition, once a user gains access, he/she will be able to view a list of employees. The data if being fecth by a public api ("https://fakerapi.it/api/v1/persons?_locale=en_EN")
 
 
 ---
