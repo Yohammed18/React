@@ -4,8 +4,6 @@ import employeeImage from './employee_img.jpg'
 function Employee({employeeList}) {
 
     const [employee, setEmployee] = useState('')
-    const [firstname, setFirstName] = useState('')
-    const [lastname, setLastName] = useState('')
     const [isSelected, setIseSelected] = useState(false)
 
     useEffect(() => {
@@ -14,10 +12,9 @@ function Employee({employeeList}) {
 
 
     const selectEmployee = (index) =>{
-
+        console.log(employeeList[index])
+        console.log(employeeList[index].email)
         setEmployee(employeeList[index])
-        setFirstName(employee.firstname)
-        setLastName(employee.lastname)
         setIseSelected(true)
     }
 
@@ -34,7 +31,9 @@ function Employee({employeeList}) {
                         <p className="card-text">The following employee has been hired as a "to be dited". Please review contract application for starting date.</p>
                         {isSelected ? (
                             <ul>
-
+                                <li><strong>Email:</strong> {employee.email}</li>
+                                <li><strong>Phone:</strong> {employee.phone}</li>
+                                <li><strong>Country:</strong> {employee.address.country}</li>
                             </ul>
                         ) : (
                             <p></p>

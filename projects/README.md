@@ -33,10 +33,6 @@ A form component that validates inputs like email, password, etc., and provides 
 - **Features:** Real-time validation and error messages.
 - **Use Case:** Handling form input, validation logic, and feedback states.
 
-## 7. E-Commerce Advanced Filtering
-A filtering component for e-commerce products, allowing users to filter by categories, price range, ratings, etc.
-- **Features:** Multi-filter logic and real-time updates to the product list.
-- **Use Case:** Managing complex state (filter combinations) and optimizing performance when handling large datasets.
 
 ---
 
