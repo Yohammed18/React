@@ -18,7 +18,7 @@ function Calculator() {
         if(value === "*" || value === "-" || value === "/" || value === "+"){
             setOperator(value)
         } else if(value === "="){
-            solution()
+            calculate()
         } 
         else {
             setNumbers((numbers) => [
@@ -28,7 +28,7 @@ function Calculator() {
         }
     }
 
-    const solution = () =>{
+    const calculate = () =>{
         
         var result = numbers[0]
         switch (operator) {
@@ -75,8 +75,6 @@ function Calculator() {
         setOperator('')
         setNumbers([])
     }
-
-
 
   return (
     <div className='container'>

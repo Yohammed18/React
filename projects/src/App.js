@@ -5,6 +5,7 @@ import Meal from './Components/Meal/Meal.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Calculator from './Components/Calculator/Calculator.jsx';
+import Toggle from './Components/Toggle/Toggle.jsx';
 
 
 
@@ -16,6 +17,7 @@ function App() {
       <Todo />
       <Meal />
       <Calculator />
+      <Toggle />
     </Fragment>
   );
 }

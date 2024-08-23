@@ -12,9 +12,6 @@ function Meal() {
                 setItems(response.data.categories);
                 const newItems = response.data.categories.map((_, index) => index);
                 setItemCount(newItems);
-                if (newItems.length > 0) {
-                    setSelect(newItems[0]); // Default to first item
-                }
             })
             .catch(error => {
                 console.error('There was an error! ', error);
@@ -22,10 +19,14 @@ function Meal() {
     }, []);
 
     const selectFood = (item) => {
-        if (item != null) {
+        if (item !== null) {
             setSelect(item);
         }
     };
+
+    const clear = () => {
+        setSelect(null)
+    }
 
     return (
         <div className='container mb-5'>
@@ -33,9 +34,10 @@ function Meal() {
             <div className="mb-5 mt-5 row">
                 <div className="col ">
                     <div className="dropdown mt-3">
-                        <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button className="btn btn-primary dropdown-toggle me-5" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                             Food Menu
                         </button>
+                        <button className="btn btn-danger" onClick={clear}>Meal Reset</button>
                         <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             {itemsCount.map((item) => (
                                 <React.Fragment key={item}>
@@ -61,7 +63,7 @@ function Meal() {
                             </>
                         ) : (
                             
-                            <p>Loading...</p>
+                            <p className='text-center' style={{color: 'red'}}><strong>Select a Meal...</strong></p>
                         )}
                     </div>
                 </div>
