@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 
 
 function Toggle() {
-
+  const [color, setColor] = useState('#c5eb0d')
   const lightColors = [
     "#FFCCCC", // Light Red
     "#FFDDC1", // Light Peach
@@ -16,17 +16,14 @@ function Toggle() {
     "#FFFFE0", // Light Ivory
     "#F0E68C"  // Light Khaki
   ];
-  
-  const [color, setColor] = useState('#c5eb0d')
-
 
   const toogle = () =>{
-    var random = Math.floor(Math.random()*10)
+    var random = Math.floor(Math.random()*lightColors.length)
     setColor(lightColors[random])
   }
 
   const reset = () =>{
-    setColor('white')
+    setColor('#EEE')
   }
 
   return (
@@ -35,10 +32,8 @@ function Toggle() {
         <div className="container text-center">
             <button className="btn btn-primary me-2" onClick={toogle}>Toogle</button>
             <button className="btn btn-success" onClick={reset}>Reset</button>
-
-            <div style={{height: "250px", width: "300px", border: "2px solid black", background: `${color}`}} className='container mt-2' />
-            
-
+            <div style={{height: "250px", width: "300px", 
+              border: "2px solid black", background: `${color}`}} className='container mt-2' />
         <hr className='mt-4 mb-4'/>
         </div>
     </div>

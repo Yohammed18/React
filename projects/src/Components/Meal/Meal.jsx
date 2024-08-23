@@ -37,7 +37,6 @@ function Meal() {
                         <button className="btn btn-primary dropdown-toggle me-5" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                             Food Menu
                         </button>
-                        <button className="btn btn-danger" onClick={clear}>Meal Reset</button>
                         <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             {itemsCount.map((item) => (
                                 <React.Fragment key={item}>
@@ -50,6 +49,7 @@ function Meal() {
                             ))}
                         </ul>
                     </div>
+                    <button className="btn btn-danger" onClick={clear}>Meal Reset</button>
                 </div>
                 <div className="col">
                     <div className="card" style={{ width: "18rem", border: "4px solid black" }}>

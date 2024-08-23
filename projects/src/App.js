@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Calculator from './Components/Calculator/Calculator.jsx';
 import Toggle from './Components/Toggle/Toggle.jsx';
+import Form from './Components/Form/Form.jsx';
 
 
 
@@ -13,11 +14,12 @@ import Toggle from './Components/Toggle/Toggle.jsx';
 function App() {
   return (
     <Fragment>
-      <Counter />
+      {/* <Counter />
       <Todo />
       <Meal />
       <Calculator />
-      <Toggle />
+      <Toggle /> */}
+      <Form />
     </Fragment>
   );
 }
