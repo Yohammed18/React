@@ -40,20 +40,22 @@ function Resturant() {
 
     return (
         <Container>
-            <h1>Resturant App</h1>
-            
-            {resturants.map((r) => 
-                r.id === id ? (
-                <ul key={r.id}>
-                    <li>Resturant: {r.name}</li>
-                    <li>Capacity: {r.capacity}</li>
-                </ul> 
-            ) : null
-            )}
+            <div className="containter text-center" style={{margin: "100px"}}>
+                <h1>Resturant App</h1>
+                
+                {resturants.map((r) => 
+                    r.id === id ? (
+                    <ul key={r.id}>
+                        <li>Resturant: {r.name}</li>
+                        <li>Capacity: {r.capacity}</li>
+                    </ul> 
+                ) : null
+                )}
 
-            Enter Id: <input type="text" size={3} value={inputValue} onChange={(e) => setInputValue(e.target.value)}/><br />
-            <button className="btn btn-primary" onClick={changeId}>Submit</button> 
-            <button className='btn btn-info' onClick={changeResturant}>Change Resturant</button>
+                Enter Id: <input type="text" size={3} value={inputValue} onChange={(e) => setInputValue(e.target.value)}/><br />
+                <button className="btn btn-primary" onClick={changeId}>Submit</button> 
+                <button className='btn btn-info' onClick={changeResturant}>Change Resturant</button>
+            </div>
         </Container>
     )
 }

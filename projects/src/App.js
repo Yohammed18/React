@@ -14,12 +14,12 @@ import Form from './Components/Form/Form.jsx';
 function App() {
   return (
     <Fragment>
-      {/* <Counter />
-      <Todo />
-      <Meal />
+      {/* <Counter /> */}
+       <Todo />
+     {/* <Meal />
       <Calculator />
-      <Toggle /> */}
-      <Form />
+      <Toggle />
+      <Form /> */}
     </Fragment>
   );
 }

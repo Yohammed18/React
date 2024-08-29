@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import data from './todo.json'
 
+
 function Todo() {
     const [todos,setTodos] = useState([])
     const [title,setTitle] = useState('')
@@ -8,13 +9,13 @@ function Todo() {
     const [comment, setComment] = useState('')
     const [error, setError] = useState('');
 
-
+    
     useEffect(() =>{
         setTodos(data)
     }, [])
 
 
-    const submit = () =>{
+    const submit = async () =>{
         if (title.trim() === "") {
             setError('Title cannot be empty. Please enter a valid todo.');
             return

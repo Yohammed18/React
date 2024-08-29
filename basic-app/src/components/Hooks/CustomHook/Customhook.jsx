@@ -9,7 +9,7 @@ function Customhook() {
 
 
     useEffect(() =>{
-        fetch("http://localhost:8080/api/authors/")
+        fetch("http://localhost:5000/api/authors/")
         .then((response) => {
             if (!response.ok) {
               throw new Error('Failed to fetch data');
@@ -17,7 +17,7 @@ function Customhook() {
             return response.json();
           })
         .then(data => {
-            setData(data)
+            setData(data['data'])
             setLoading(false); // Set loading to false once data is fetched
         })
         .catch((error) => {
