@@ -1,4 +1,4 @@
-import {createContext, useState} from 'react'
+import {createContext, useState, useEffect} from 'react'
 
 
 export const WatchlistContext = createContext()
@@ -6,9 +6,11 @@ export const WatchlistContext = createContext()
 
 export const WatchlistContextProvider = (props) =>{
 
-    const [watchList, setWatchList] = useState([
-        'GOOGL', 'MSFT', 'PLTR'
-    ])
+    const [watchList, setWatchList] = useState(localStorage.getItem('watchList')?.split(',') || ['GOOGL', 'MSFT', 'PLTR'])
+
+    useEffect(() =>{
+        localStorage.setItem('watchList', watchList.join(','))
+    }, [watchList]);
 
 
     const addStock = (stock) => {

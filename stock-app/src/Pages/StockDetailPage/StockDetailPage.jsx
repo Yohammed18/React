@@ -22,7 +22,7 @@ function StockDetailPage() {
   useEffect(() =>{
 
     const currentDate = () => {
-      const today = new Date();
+      const today = new Date(2024, 7, 30);
       const yesterday = new Date(today);
       yesterday.setDate(today.getDate() - 1); // Subtract one day
   
@@ -33,47 +33,46 @@ function StockDetailPage() {
           today: formattedToday,
           yesterday: formattedYesterday
       };
-  }
+    }
 
     const fetchData = async () =>{
       const { today } = currentDate()
       const sanitizedSymbol = encodeURIComponent(symbol)
       try {
+          console.log('Fetching company data...');
           const companyResponse  = await finhub.get('/stock/profile2',  { params: {symbol}});
+          console.log('Company data:', companyResponse.data);
 
+          console.log('Fetching company data...');
           const newsResponse  = await finhub.get('/company-news',{
           params: { symbol, from: today, to: today }})
+          console.log('News data:', newsResponse.data);
 
-          //fetch from financialModeling
+          console.log('Fetching company data...');
           const companyInfoResponse = await finhubalternate.get(`profile/${sanitizedSymbol}`)
+          console.log('Company Info data:', companyInfoResponse.data);
 
-          console.log('COMPNAY INFO: ', companyInfoResponse.data[0])
-          if(companyInfoResponse.data.length !== 0){
+          setData(newsResponse.data)
+
+          if(companyInfoResponse.data && companyInfoResponse.data.length > 0){
             setCompanyInfo(companyInfoResponse.data[0])
           }
-          setData(newsResponse.data)
-          if( company === null){
-            setCompany(companyResponse.data)
-          }
+
+          setCompany(companyResponse.data)
+  
       } catch (error) {
         console.error('Error fetch: ',error)
       }
     };
 
-    fetchData();
-
-
-    if( company !== null ){
-      console.log(company.marketCapitalization)
-    }
-    
+    fetchData();    
 
   }, [symbol])
 
   return (
     <div className='mt-5 mb-5'>
       <h2 className="text-center" style={{fontFamily: 'Georgia'}}>Company Info & News.</h2>
-      {data.length > 0  && company ? (
+      {data.length > 0 && company ? (
         <div className="container mt-5">
           <div className="row">
             <div className="col-md-6">
@@ -89,7 +88,6 @@ function StockDetailPage() {
                         <br/>
                         <strong>Description: </strong>{companyInfo.description}
                         </p>
-                        
                         
                       </div>
                     </div>

@@ -29,6 +29,11 @@ function AutoComplete() {
               addStock(result.symbol)
               setSearch('')
             }}
+            onTouchStart={() => {
+              addStock(result.symbol)
+              setSearch('')
+
+            }}
             >
               {result.description} - ({result.symbol})
             </li>
@@ -39,7 +44,7 @@ function AutoComplete() {
   }
 
   useEffect(() =>{
-
+    
     let isMounted = true
     const fetchData = async () =>{
       try {

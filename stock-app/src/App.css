@@ -1,4 +1,14 @@
 
 body {
-    background-color: rgb(243, 240, 211);
+    background-color: rgb(245, 241, 241);
+}
+
+
+.delete-button {
+    visibility: hidden;
+    display: inline-block;
+}
+
+.table-row:hover .delete-button{
+    visibility: visible;
 }
