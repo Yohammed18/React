@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import finhub from '../../apis/finhub'
-
+import { WatchlistContext } from '../../Context/WatchlistContext';
 
 
 
@@ -8,6 +8,7 @@ function AutoComplete() {
 
   const [search, setSearch] = useState('')
   const [results, setResults] = useState([])
+  const {addStock} = useContext(WatchlistContext)
 
     //show drop down
   const renderDropdown = () => {
@@ -15,15 +16,22 @@ function AutoComplete() {
 
     return (
       <ul className={`dropdown-menu ${dropDownClass}`} style={{
-        height: '500px',
+        height: '300px',
         overflowY: 'scroll',
         overflowX: 'hidden',
         cursor: 'pointer',
-        width: '425px'
+        width: '370px'
       }}>
         {results.map((result, index) =>{
           return (
-            <li key={index} className='drowdown-item'>{result.description} - ({result.symbol})</li>
+            <li key={index} className='drowdown-item'
+            onClick={() => {
+              addStock(result.symbol)
+              setSearch('')
+            }}
+            >
+              {result.description} - ({result.symbol})
+            </li>
           )
         })}
       </ul>
@@ -63,11 +71,14 @@ function AutoComplete() {
 
 
   return (
-    <div className='w-75 p-5 rounded mx-au text-center'>
-      <div className="form-floating dropdown">
-        <input style={{backgroundColor: "", }} id='search' type='text' className='form-control' placeholder='Search' value={search} onChange={(e) => setSearch(e.target.value)}/>
-        <label htmlFor="search">Search</label>
-        {renderDropdown()}
+    <div className='w-75 p-5 rounded mx-au '>
+      <div className="d-flex align-items-center">
+        <div className="form-floating dropdown flex-grow-1 me-2">
+          <input style={{backgroundColor: "", }} id='search' type='text' className='form-control' placeholder='Search' value={search} onChange={(e) => setSearch(e.target.value)}/>
+          <label htmlFor="search">Search</label>
+          {renderDropdown()}
+        </div>
+        <button className='btn btn-lg btn-info' style={{backgroundColor: "#6AEDBB"}} onClick={() => setSearch('')}>Clear</button>
       </div>
     </div>
   )
