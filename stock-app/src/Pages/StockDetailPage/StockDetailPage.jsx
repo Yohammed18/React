@@ -2,6 +2,7 @@ import {React, useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import finhub from '../../apis/finhub'
 import finhubalternate from '../../apis/finhubalternate'
+import { useNavigate } from 'react-router-dom'
 
 
 function StockDetailPage() {
@@ -10,6 +11,7 @@ function StockDetailPage() {
   const [company, setCompany] = useState(null)
   const [companyInfo, setCompanyInfo] = useState(null)
   const {symbol} = useParams()
+  const navigate = useNavigate()
 
   const getFormattedDate = (date) => {
     const year = date.getFullYear();
@@ -22,7 +24,7 @@ function StockDetailPage() {
   useEffect(() =>{
 
     const currentDate = () => {
-      const today = new Date(2024, 7, 30);
+      const today = new Date(2024, 8, 6);
       const yesterday = new Date(today);
       yesterday.setDate(today.getDate() - 1); // Subtract one day
   
@@ -69,8 +71,15 @@ function StockDetailPage() {
 
   }, [symbol])
 
+
+  const returnHome = () =>{
+    navigate('/')
+  }
+
+
   return (
     <div className='mt-5 mb-5'>
+      <button className="btn btn-info" onClick={() => returnHome()}>HOME</button>
       <h2 className="text-center" style={{fontFamily: 'Georgia'}}>Company Info & News.</h2>
       {data.length > 0 && company ? (
         <div className="container mt-5">
@@ -110,7 +119,24 @@ function StockDetailPage() {
           </div>
         </div>
       ) : (
-        <h2>Loading...</h2>
+        <div className="container">
+          {company && (
+                    <div className="card mb-3">
+                      <img src={`${company.logo}`} alt="Company Logo" className="card-img-top" style={{width: '100%'}}/>
+                      <div className="card-body">
+                        <h5 className="card-title">{company.name}</h5>
+                        <p><strong>Ticker: </strong>{company.ticker} 
+                        <br /><strong>CEO: </strong>{companyInfo.ceo}
+                        <br /><strong>Site: </strong><a href={`${company.weburl}`}>{company.weburl}</a><br />
+                        <strong>Sector: </strong>{companyInfo.sector}
+                        <br/>
+                        <strong>Description: </strong>{companyInfo.description}
+                        </p>
+                        
+                      </div>
+                    </div>
+                  )}
+        </div>
       )}
     </div>
   )

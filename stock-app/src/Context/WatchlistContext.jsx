@@ -6,6 +6,8 @@ export const WatchlistContext = createContext()
 
 export const WatchlistContextProvider = (props) =>{
 
+    
+
     const [watchList, setWatchList] = useState(localStorage.getItem('watchList')?.split(',') || ['GOOGL', 'MSFT', 'PLTR'])
 
     useEffect(() =>{
